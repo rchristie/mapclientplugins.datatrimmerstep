@@ -53,6 +53,7 @@ class DataTrimmerStep(WorkflowStepMountPoint):
         self._view.register_done_execution(self._myDoneExecution)
 
     def _myDoneExecution(self):
+        self._port1_output_file = self._model.get_output_filename()
         self._model = None
         self._view = None
         self._doneExecution()
@@ -76,7 +77,7 @@ class DataTrimmerStep(WorkflowStepMountPoint):
 
         :param index: Index of the port to return.
         """
-        return self._portData1 # <not-set>
+        return self._port1_output_file # <not-set>
 
     def configure(self):
         """
