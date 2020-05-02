@@ -2,8 +2,6 @@ from PySide import QtGui, QtCore
 
 from .ui_datatrimmerwidget import Ui_DataTrimmer
 
-from opencmiss.zinchandlers.scenemanipulation import SceneManipulation
-
 
 class DataTrimmer(QtGui.QWidget):
 
@@ -14,21 +12,31 @@ class DataTrimmer(QtGui.QWidget):
         self._ui.setupUi(self)
         self._ui.sceneviewerWidget.setContext(self._model.get_context())
         self._ui.sceneviewerWidget.graphicsInitialized.connect(self._graphics_initialized)
-        self._setup_handlers()
         self._done_callback = None
         self._scene_change_callback = None
         self._settings = {'view-parameters': {}}
         self._make_connections()
 
     def _make_connections(self):
-        pass
+        self._ui.doneButton.clicked.connect(self._done_clicked)
+        self._ui.destroyButton.clicked.connect(self._destroy_groups)
+        # self._ui.resetButton.clicked.connect(self._reset)
+
+    def _destroy_groups(self):
+        group_to_delete = []
+        for item in self._ui.groupOptions_frame.children():
+            if isinstance(item, QtGui.QCheckBox):
+                if item.isChecked():
+                    group_to_delete.append(item.objectName())
+                    item.setEnabled(False)
+        self._model.destroy_groups(group_to_delete)
 
     def _graphics_initialized(self):
         self._scene_changed()
         self._get_groups()
-        sceneviewer = self._ui.sceneviewerWidget.getSceneviewer()
-        if sceneviewer is not None:
-            sceneviewer.viewAll()
+        scene_viewer = self._ui.sceneviewerWidget.getSceneviewer()
+        if scene_viewer is not None:
+            scene_viewer.viewAll()
 
     def _scene_changed(self):
         sceneviewer = self._ui.sceneviewerWidget.getSceneviewer()
@@ -45,14 +53,11 @@ class DataTrimmer(QtGui.QWidget):
             self._ui.sceneviewerWidget.viewAll()
 
     def _done_clicked(self):
+        self._model.write_model()
         self._done_callback()
 
     def register_done_execution(self, done_callback):
         self._done_callback = done_callback
-
-    def _setup_handlers(self):
-        basic_handler = SceneManipulation()
-        # self._ui.sceneviewerWidget.register_handler(basic_handler)
 
     def _get_groups(self):
         layout = self._ui.groupOptions_frame.layout()
@@ -60,7 +65,7 @@ class DataTrimmer(QtGui.QWidget):
             child = layout.takeAt(0)
             if child.widget():
                 child.widget().deleteLater()
-        data_groups = self._model.get_groups()
+        data_groups = self._model.get_group_names()
         for row in range(len(data_groups)):
             if data_groups[row] != 'marker':
                 checkbox = QtGui.QCheckBox()
