@@ -20,9 +20,9 @@ a new, trimmed Zinc EX data file.
 ### The UI:
 
 The UI is very simple. The plugin automatically discovers all the groups in the Zinc file and populates them in the 
-'Control Panel' on the left side bar. You can select the group(s) that you want to delete by selecting the checkbox(es) 
-and then click on the "Destroy selected groups" to remove those groups. Once you're done, you can press the "Done" button
-and the new file will be saved in the same directory as the original data file.
+'Control Panel' on the left side bar as a set of checkboxes. Initially, these checkboxes are all checked.
+Unchecking them will remove the corresponding groups from the scene view. When you press the "Done" button, only
+the checked checkboxes will remain and a new file with those groups will be saved in the same directory as the original data file.
 
 #### Example:
 ##### - Step 1:
