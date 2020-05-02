@@ -3,6 +3,7 @@ import os
 from opencmiss.zinc.context import Context
 from opencmiss.zinc.field import Field
 from opencmiss.zinc.glyph import Glyph
+from opencmiss.zinc.spectrum import Spectrumcomponent
 from opencmiss.zinc.status import OK as ZINC_OK
 from opencmiss.utils.zinc.general import ChangeManager
 
@@ -119,30 +120,42 @@ class DataModel(object):
         self._coordinate_field = self._get_data_coordinate_field()
         self._discover_groups()
 
-    # def _create_rgb_spectrum(self):
-    #     field = self._field_module.findFieldByName('rgb')
-    #     spectrummodule = self._scene.getSpectrummodule()
-    #     spectrum = None
-    #     dataProjections.setSpectrum(spectrum)
-    #     dataProjections.setName("displayDataProjections")
-    #     dataProjections.setVisibilityFlag(self.isDisplayDataProjections())
+    def _create_rgb_spectrum(self):
+        spectrum_module = self._scene.getSpectrummodule()
+        self._rgb_spectrum = spectrum_module.findSpectrumByName("rgb")
+        if not self._rgb_spectrum.isValid():
+            with ChangeManager(spectrum_module):
+                self._rgb_spectrum = spectrum_module.createSpectrum()
+                self._rgb_spectrum.setName("rgb")
+                self._rgb_spectrum.setMaterialOverwrite(True)
+                colour_mapping_types = (Spectrumcomponent.COLOUR_MAPPING_TYPE_RED,
+                                        Spectrumcomponent.COLOUR_MAPPING_TYPE_GREEN,
+                                        Spectrumcomponent.COLOUR_MAPPING_TYPE_BLUE)
+                for c in range(3):
+                    spectrum_component = self._rgb_spectrum.createSpectrumcomponent()
+                    spectrum_component.setFieldComponent(c + 1)
+                    spectrum_component.setColourMappingType(colour_mapping_types[c])
+                    spectrum_component.setColourMinimum(0.0)
+                    spectrum_component.setColourMaximum(1.0)
+                    spectrum_component.setRangeMinimum(0.0)
+                    spectrum_component.setRangeMaximum(1.0)
 
-    def generate(self):
-        self.create_graphics()
-        if self._scene_change_callback:
-            self._scene_change_callback()
-
-    def create_graphics(self):
-        # self._create_rgb_spectrum()
-        points = self._scene.createGraphicsPoints()
-        points.setFieldDomainType(Field.DOMAIN_TYPE_NODES)
-        points.setCoordinateField(self._coordinate_field)
-        point_attr = points.getGraphicspointattributes()
-        point_attr.setGlyphShapeType(Glyph.SHAPE_TYPE_POINT)
-        point_size = self._get_auto_point_size()
-        point_attr.setBaseSize(point_size)
-        points.setMaterial(self._material_module.findMaterialByName('silver'))
-        points.setName('display_points')
+    def create_graphics(self, groups: []):
+        self._create_rgb_spectrum()
+        for group in groups:
+            if group in self._group_dct.keys():
+                group_field = self._group_dct[group]
+                points = self._scene.createGraphicsPoints()
+                points.setSubgroupField(group_field)
+                points.setFieldDomainType(Field.DOMAIN_TYPE_NODES)
+                points.setCoordinateField(self._coordinate_field)
+                points.setDataField(self._field_module.findFieldByName('rgb'))
+                point_attr = points.getGraphicspointattributes()
+                point_attr.setGlyphShapeType(Glyph.SHAPE_TYPE_POINT)
+                point_size = self._get_auto_point_size()
+                point_attr.setBaseSize(point_size)
+                points.setSpectrum(self._rgb_spectrum)
+                points.setName(str(group)+'_points')
 
     def destroy_groups(self, groups: []):
         if groups is None:
@@ -176,6 +189,18 @@ class DataModel(object):
 
     def register_scene_change_callback(self, scene_change_callback):
         self._scene_change_callback = scene_change_callback
+
+    def remove_graphics(self, groups):
+        with ChangeManager(self._scene):
+            for group in groups:
+                points = self._scene.findGraphicsByName(str(group) + '_points')
+                points.setVisibilityFlag(False)
+
+    def show_graphics(self, groups):
+        with ChangeManager(self._scene):
+            for group in groups:
+                points = self._scene.findGraphicsByName(str(group) + '_points')
+                points.setVisibilityFlag(True)
 
     def write_model(self):
         filename = os.path.basename(self._ex_filename).split('.')[0] + '_Trimmed.ex'
