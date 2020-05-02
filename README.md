@@ -12,15 +12,15 @@ The plugin will then appear under the 'Utility' category:
 
 ### A typical workflow using this plugin:
 
-The plugin has one input port for the Zinc EX data file using the "File Chooser" plugin. The output port port provides
+The plugin has one input port for the Zinc EX data file using the "File Chooser" plugin. The output port provides
 a new, trimmed Zinc EX data file.
 
 ![alt text](resources/workflow.png)
 
 ### The UI:
 
-The UI is very simple. The plugin automatically discovers all the groups in the Zinc file and populate them in the 
-Control Panel on the left side bar. You can select the group(s) that you want to delete by selecting the checkbox(es) 
+The UI is very simple. The plugin automatically discovers all the groups in the Zinc file and populates them in the 
+'Control Panel' on the left side bar. You can select the group(s) that you want to delete by selecting the checkbox(es) 
 and then click on the "Destroy selected groups" to remove those groups. Once you're done, you can press the "Done" button
 and the new file will be saved in the same directory as the original data file.
 
