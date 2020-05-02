@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'datatrimmerwidget.ui'
 #
-# Created: Fri May  1 17:02:47 2020
+# Created: Sat May  2 19:01:39 2020
 #      by: pyside-uic 0.2.15 running on PySide 1.2.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -141,18 +141,9 @@ class Ui_DataTrimmer(object):
         self.gridLayout = QtGui.QGridLayout(self.deleteResetWidget)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setObjectName("gridLayout")
-        self.destroyButton = QtGui.QPushButton(self.deleteResetWidget)
-        self.destroyButton.setEnabled(True)
-        self.destroyButton.setObjectName("destroyButton")
-        self.gridLayout.addWidget(self.destroyButton, 0, 3, 1, 1)
         spacerItem1 = QtGui.QSpacerItem(0, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem1, 0, 1, 1, 1)
-        self.resetButton = QtGui.QPushButton(self.deleteResetWidget)
-        self.resetButton.setObjectName("resetButton")
-        self.gridLayout.addWidget(self.resetButton, 0, 0, 1, 1)
+        self.gridLayout.addItem(spacerItem1, 0, 0, 1, 1)
         self.verticalLayout_5.addWidget(self.deleteResetWidget)
-        spacerItem2 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-        self.verticalLayout_5.addItem(spacerItem2)
         self.toolBox.addItem(self.dataTrimmerPage, "")
         self.verticalLayout_3.addWidget(self.toolBox)
         self.frame = QtGui.QFrame(self.scrollAreaWidgetContents)
@@ -197,10 +188,6 @@ class Ui_DataTrimmer(object):
     def retranslateUi(self, DataTrimmer):
         DataTrimmer.setWindowTitle(QtGui.QApplication.translate("DataTrimmer", "Form", None, QtGui.QApplication.UnicodeUTF8))
         self.dockWidget.setWindowTitle(QtGui.QApplication.translate("DataTrimmer", "Data Trimmer Step", None, QtGui.QApplication.UnicodeUTF8))
-        self.destroyButton.setToolTip(QtGui.QApplication.translate("DataTrimmer", "Load pre-saved alignment settings", None, QtGui.QApplication.UnicodeUTF8))
-        self.destroyButton.setText(QtGui.QApplication.translate("DataTrimmer", "Destroy selected groups", None, QtGui.QApplication.UnicodeUTF8))
-        self.resetButton.setToolTip(QtGui.QApplication.translate("DataTrimmer", "Offset the model to the centre of the data points. May need to click View All afterwards.", None, QtGui.QApplication.UnicodeUTF8))
-        self.resetButton.setText(QtGui.QApplication.translate("DataTrimmer", "Reset", None, QtGui.QApplication.UnicodeUTF8))
         self.toolBox.setItemText(self.toolBox.indexOf(self.dataTrimmerPage), QtGui.QApplication.translate("DataTrimmer", "Control Panel", None, QtGui.QApplication.UnicodeUTF8))
         self.viewAllButton.setToolTip(QtGui.QApplication.translate("DataTrimmer", "Adjust the view to see the whole model", None, QtGui.QApplication.UnicodeUTF8))
         self.viewAllButton.setText(QtGui.QApplication.translate("DataTrimmer", "View All", None, QtGui.QApplication.UnicodeUTF8))

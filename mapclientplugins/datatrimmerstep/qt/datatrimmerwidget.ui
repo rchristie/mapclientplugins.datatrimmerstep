@@ -248,20 +248,7 @@ QToolBox {
                   </sizepolicy>
                  </property>
                  <layout class="QGridLayout" name="gridLayout">
-                  <item row="0" column="3">
-                   <widget class="QPushButton" name="destroyButton">
-                    <property name="enabled">
-                     <bool>true</bool>
-                    </property>
-                    <property name="toolTip">
-                     <string>Load pre-saved alignment settings</string>
-                    </property>
-                    <property name="text">
-                     <string>Destroy selected groups</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
+                  <item row="0" column="0">
                    <spacer name="horizontalSpacer_3">
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
@@ -277,31 +264,8 @@ QToolBox {
                     </property>
                    </spacer>
                   </item>
-                  <item row="0" column="0">
-                   <widget class="QPushButton" name="resetButton">
-                    <property name="toolTip">
-                     <string>Offset the model to the centre of the data points. May need to click View All afterwards.</string>
-                    </property>
-                    <property name="text">
-                     <string>Reset</string>
-                    </property>
-                   </widget>
-                  </item>
                  </layout>
                 </widget>
-               </item>
-               <item>
-                <spacer name="verticalSpacer_2">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>20</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                </spacer>
                </item>
               </layout>
              </widget>
