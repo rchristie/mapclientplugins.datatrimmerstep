@@ -63,17 +63,18 @@ class DataTrimmer(QtGui.QWidget):
         data_groups = self._model.get_group_names()
         settings = self._model.get_settings()
         for row in range(len(data_groups)):
-            if data_groups[row] != 'marker':
-                checkbox = QtGui.QCheckBox()
-                if settings[data_groups[row]]:
-                    checkbox.setCheckState(QtCore.Qt.Checked)
-                else:
-                    checkbox.setCheckState(QtCore.Qt.Unchecked)
-                checkbox.setObjectName(data_groups[row])
-                checkbox.setText(str(data_groups[row]))
-                callback = partial(self._group_display_changed, checkbox)
-                checkbox.clicked.connect(callback)
-                layout.addWidget(checkbox)
+            if data_groups[row] == 'marker' or data_groups[row] == 'cmiss_selection':
+                continue
+            checkbox = QtGui.QCheckBox()
+            if settings[data_groups[row]]:
+                checkbox.setCheckState(QtCore.Qt.Checked)
+            else:
+                checkbox.setCheckState(QtCore.Qt.Unchecked)
+            checkbox.setObjectName(data_groups[row])
+            checkbox.setText(str(data_groups[row]))
+            callback = partial(self._group_display_changed, checkbox)
+            checkbox.clicked.connect(callback)
+            layout.addWidget(checkbox)
 
     def _group_display_changed(self, checkbox):
         if checkbox.objectName() == 'all_groups':
