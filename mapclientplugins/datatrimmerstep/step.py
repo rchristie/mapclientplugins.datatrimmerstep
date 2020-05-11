@@ -47,7 +47,7 @@ class DataTrimmerStep(WorkflowStepMountPoint):
         may be connected up to a button in a widget for example.
         """
         # Put your execute step code here before calling the '_doneExecution' method.
-        self._model = DataModel(self._port0_input_file)
+        self._model = DataModel(self._port0_input_file, self._location, self._config['identifier'])
         self._view = DataTrimmer(self._model)
         self._setCurrentWidget(self._view)
         self._view.register_done_execution(self._myDoneExecution)

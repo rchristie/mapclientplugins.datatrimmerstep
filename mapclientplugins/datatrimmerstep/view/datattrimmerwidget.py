@@ -33,6 +33,7 @@ class DataTrimmer(QtGui.QWidget):
         self._model.destroy_groups(group_to_delete)
 
     def _done_clicked(self):
+        self._model.done()
         self._destroy_groups()
         self._model.write_model()
         self._done_callback()
@@ -60,10 +61,14 @@ class DataTrimmer(QtGui.QWidget):
         checkbox.clicked.connect(callback)
         layout.addWidget(checkbox)
         data_groups = self._model.get_group_names()
+        settings = self._model.get_settings()
         for row in range(len(data_groups)):
             if data_groups[row] != 'marker':
                 checkbox = QtGui.QCheckBox()
-                checkbox.setCheckState(QtCore.Qt.Checked)
+                if settings[data_groups[row]]:
+                    checkbox.setCheckState(QtCore.Qt.Checked)
+                else:
+                    checkbox.setCheckState(QtCore.Qt.Unchecked)
                 checkbox.setObjectName(data_groups[row])
                 checkbox.setText(str(data_groups[row]))
                 callback = partial(self._group_display_changed, checkbox)
@@ -76,12 +81,12 @@ class DataTrimmer(QtGui.QWidget):
                 for child in self._ui.groupOptions_frame.children():
                     if isinstance(child, QtGui.QCheckBox):
                         child.setCheckState(QtCore.Qt.Unchecked)
-                        self._model.remove_graphics(self._checked_groups)
+                        self._model.remove_graphics(self._model.get_group_names())
             elif checkbox.isChecked():
                 for child in self._ui.groupOptions_frame.children():
                     if isinstance(child, QtGui.QCheckBox):
                         child.setCheckState(QtCore.Qt.Checked)
-                        self._model.show_graphics(self._checked_groups)
+                        self._model.show_graphics(self._model.get_group_names())
             return
         if not checkbox.isChecked():
             self._model.remove_graphics([checkbox.objectName()])
@@ -102,7 +107,7 @@ class DataTrimmer(QtGui.QWidget):
     def _scene_changed(self):
         sceneviewer = self._ui.sceneviewerWidget.getSceneviewer()
         if sceneviewer is not None:
-            self._model.create_graphics(self._checked_groups)
+            self._model.create_graphics(self._model.get_group_names())
             sceneviewer.setScene(self._model.get_scene())
             self._refresh_graphics()
 
