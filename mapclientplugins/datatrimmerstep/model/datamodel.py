@@ -23,13 +23,13 @@ def sub(u, v):
 
 class DataModel(object):
 
-    def __init__(self, ex_data_file, location, identifier):
+    def __init__(self, ex_data_file, location):
         self._context = Context('DataTrimmer')
         self._region = self._context.createRegion()
         self._region.setName('TrimRegion')
         self._field_module = self._region.getFieldmodule()
         self._ex_filename = ex_data_file
-        self._location = os.path.join(location, identifier)
+        self._location = location
         self._output_filename = None
         self._coordinate_field = None
         self._mesh = None
@@ -229,8 +229,6 @@ class DataModel(object):
         mesh1d = self._field_module.findMeshByDimension(1)
         nodeset = self._field_module.findNodesetByFieldDomainType(Field.DOMAIN_TYPE_NODES)
         with ChangeManager(self._field_module):
-            # for dimension in range(self._mesh.getDimension()):
-            # mesh = self._field_module.findMeshByDimension(dimension)
             for group in groups:
                 if group in self._group_dct.keys():
                     # print("Deleting dimension {0} for group {1}".format(dimension, group))
@@ -290,7 +288,6 @@ class DataModel(object):
                     surfaces.setVisibilityFlag(True)
 
     def write_model(self):
-        filename = os.path.basename(self._ex_filename).split('.')[0] + '_Trimmed.ex'
-        path = os.path.dirname(self._ex_filename)
-        self._output_filename = os.path.join(path, filename)
+        filename = os.path.basename(self._ex_filename).split('.')[0] + '-trimmed.ex'
+        self._output_filename = os.path.join(self._location, filename)
         self._region.writeFile(self._output_filename)
