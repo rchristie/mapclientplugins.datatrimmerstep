@@ -23,13 +23,14 @@ def sub(u, v):
 
 class DataModel(object):
 
-    def __init__(self, ex_data_file, location):
+    def __init__(self, ex_data_file, location, identifier):
         self._context = Context('DataTrimmer')
         self._region = self._context.createRegion()
         self._region.setName('TrimRegion')
         self._field_module = self._region.getFieldmodule()
         self._ex_filename = ex_data_file
         self._location = location
+        self._identifier = identifier
         self._output_filename = None
         self._coordinate_field = None
         self._mesh = None
@@ -61,7 +62,7 @@ class DataModel(object):
             f.write(json.dumps(self._settings, sort_keys=False, indent=4))
 
     def _get_settings_filename(self):
-        return self._location + "-display-settings.json"
+        return self._location + "-" + self._identifier + "-display-settings.json"
 
     def _discover_groups(self):
         with ChangeManager(self._field_module):
@@ -264,7 +265,6 @@ class DataModel(object):
         self._scene_change_callback = scene_change_callback
 
     def remove_graphics(self, groups):
-        with ChangeManager(self._scene):
             for group in groups:
                 self._settings[group] = False
                 points = self._scene.findGraphicsByName(str(group) + '_points')
@@ -288,6 +288,6 @@ class DataModel(object):
                     surfaces.setVisibilityFlag(True)
 
     def write_model(self):
-        filename = os.path.basename(self._ex_filename).split('.')[0] + '-trimmed.ex'
+        filename = os.path.basename(self._ex_filename).split('.')[0] + self._identifier + '-trimmed.ex'
         self._output_filename = os.path.join(self._location, filename)
         self._region.writeFile(self._output_filename)
