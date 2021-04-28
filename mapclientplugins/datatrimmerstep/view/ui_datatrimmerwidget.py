@@ -1,68 +1,70 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'datatrimmerwidget.ui'
-#
-# Created: Sat May  2 19:01:39 2020
-#      by: pyside-uic 0.2.15 running on PySide 1.2.4
-#
-# WARNING! All changes made in this file will be lost!
+################################################################################
+## Form generated from reading UI file 'datatrimmerwidget.ui'
+##
+## Created by: Qt User Interface Compiler version 5.15.2
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
 
-from PySide import QtCore, QtGui
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+
+from opencmiss.zincwidgets.sceneviewerwidget import SceneviewerWidget
+
 
 class Ui_DataTrimmer(object):
     def setupUi(self, DataTrimmer):
-        DataTrimmer.setObjectName("DataTrimmer")
+        if not DataTrimmer.objectName():
+            DataTrimmer.setObjectName(u"DataTrimmer")
         DataTrimmer.resize(1310, 998)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Preferred)
+        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(DataTrimmer.sizePolicy().hasHeightForWidth())
         DataTrimmer.setSizePolicy(sizePolicy)
-        self.horizontalLayout = QtGui.QHBoxLayout(DataTrimmer)
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.dockWidget = QtGui.QDockWidget(DataTrimmer)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.dockWidget.sizePolicy().hasHeightForWidth())
-        self.dockWidget.setSizePolicy(sizePolicy)
-        self.dockWidget.setMinimumSize(QtCore.QSize(468, 135))
-        self.dockWidget.setFeatures(QtGui.QDockWidget.DockWidgetFloatable|QtGui.QDockWidget.DockWidgetMovable)
-        self.dockWidget.setAllowedAreas(QtCore.Qt.AllDockWidgetAreas)
-        self.dockWidget.setObjectName("dockWidget")
-        self.dockWidgetContents = QtGui.QWidget()
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.dockWidgetContents.sizePolicy().hasHeightForWidth())
-        self.dockWidgetContents.setSizePolicy(sizePolicy)
-        self.dockWidgetContents.setObjectName("dockWidgetContents")
-        self.verticalLayout_2 = QtGui.QVBoxLayout(self.dockWidgetContents)
+        self.horizontalLayout = QHBoxLayout(DataTrimmer)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.dockWidget = QDockWidget(DataTrimmer)
+        self.dockWidget.setObjectName(u"dockWidget")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.dockWidget.sizePolicy().hasHeightForWidth())
+        self.dockWidget.setSizePolicy(sizePolicy1)
+        self.dockWidget.setMinimumSize(QSize(468, 135))
+        self.dockWidget.setFeatures(QDockWidget.DockWidgetFloatable|QDockWidget.DockWidgetMovable)
+        self.dockWidget.setAllowedAreas(Qt.AllDockWidgetAreas)
+        self.dockWidgetContents = QWidget()
+        self.dockWidgetContents.setObjectName(u"dockWidgetContents")
+        sizePolicy1.setHeightForWidth(self.dockWidgetContents.sizePolicy().hasHeightForWidth())
+        self.dockWidgetContents.setSizePolicy(sizePolicy1)
+        self.verticalLayout_2 = QVBoxLayout(self.dockWidgetContents)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.scrollArea = QtGui.QScrollArea(self.dockWidgetContents)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.scrollArea.sizePolicy().hasHeightForWidth())
-        self.scrollArea.setSizePolicy(sizePolicy)
-        self.scrollArea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.scrollArea = QScrollArea(self.dockWidgetContents)
+        self.scrollArea.setObjectName(u"scrollArea")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.scrollArea.sizePolicy().hasHeightForWidth())
+        self.scrollArea.setSizePolicy(sizePolicy2)
+        self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.scrollArea.setWidgetResizable(True)
-        self.scrollArea.setObjectName("scrollArea")
-        self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 466, 956))
-        self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
-        self.verticalLayout_3 = QtGui.QVBoxLayout(self.scrollAreaWidgetContents)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 466, 948))
+        self.verticalLayout_3 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_3.setSpacing(2)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(2, 2, 2, 2)
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.toolBox = QtGui.QToolBox(self.scrollAreaWidgetContents)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.toolBox.sizePolicy().hasHeightForWidth())
-        self.toolBox.setSizePolicy(sizePolicy)
-        self.toolBox.setStyleSheet("QToolBox::tab {\n"
+        self.toolBox = QToolBox(self.scrollAreaWidgetContents)
+        self.toolBox.setObjectName(u"toolBox")
+        sizePolicy1.setHeightForWidth(self.toolBox.sizePolicy().hasHeightForWidth())
+        self.toolBox.setSizePolicy(sizePolicy1)
+        self.toolBox.setStyleSheet(u"QToolBox::tab {\n"
 "         background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
 "                                     stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
 "                                     stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
@@ -77,121 +79,154 @@ class Ui_DataTrimmer(object):
 "QToolBox {\n"
 "    padding : 0\n"
 "}")
-        self.toolBox.setObjectName("toolBox")
-        self.dataTrimmerPage = QtGui.QWidget()
-        self.dataTrimmerPage.setGeometry(QtCore.QRect(0, 0, 462, 892))
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.dataTrimmerPage.sizePolicy().hasHeightForWidth())
-        self.dataTrimmerPage.setSizePolicy(sizePolicy)
-        self.dataTrimmerPage.setObjectName("dataTrimmerPage")
-        self.verticalLayout_5 = QtGui.QVBoxLayout(self.dataTrimmerPage)
+        self.dataTrimmerPage = QWidget()
+        self.dataTrimmerPage.setObjectName(u"dataTrimmerPage")
+        self.dataTrimmerPage.setGeometry(QRect(0, 0, 462, 876))
+        sizePolicy1.setHeightForWidth(self.dataTrimmerPage.sizePolicy().hasHeightForWidth())
+        self.dataTrimmerPage.setSizePolicy(sizePolicy1)
+        self.verticalLayout_5 = QVBoxLayout(self.dataTrimmerPage)
         self.verticalLayout_5.setSpacing(7)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.verticalLayout_5.setContentsMargins(0, 3, 0, 3)
-        self.verticalLayout_5.setObjectName("verticalLayout_5")
-        self.dataGroupsFrame = QtGui.QFrame(self.dataTrimmerPage)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.dataGroupsFrame.sizePolicy().hasHeightForWidth())
-        self.dataGroupsFrame.setSizePolicy(sizePolicy)
-        self.dataGroupsFrame.setMinimumSize(QtCore.QSize(0, 0))
-        self.dataGroupsFrame.setFrameShape(QtGui.QFrame.StyledPanel)
-        self.dataGroupsFrame.setFrameShadow(QtGui.QFrame.Raised)
-        self.dataGroupsFrame.setObjectName("dataGroupsFrame")
-        self.gridLayout_7 = QtGui.QGridLayout(self.dataGroupsFrame)
-        self.gridLayout_7.setObjectName("gridLayout_7")
-        self.modifyOptions_frame = QtGui.QFrame(self.dataGroupsFrame)
-        self.modifyOptions_frame.setFrameShape(QtGui.QFrame.StyledPanel)
-        self.modifyOptions_frame.setFrameShadow(QtGui.QFrame.Raised)
-        self.modifyOptions_frame.setObjectName("modifyOptions_frame")
-        self.verticalLayout_17 = QtGui.QVBoxLayout(self.modifyOptions_frame)
+        self.dataGroupsFrame = QFrame(self.dataTrimmerPage)
+        self.dataGroupsFrame.setObjectName(u"dataGroupsFrame")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.dataGroupsFrame.sizePolicy().hasHeightForWidth())
+        self.dataGroupsFrame.setSizePolicy(sizePolicy3)
+        self.dataGroupsFrame.setMinimumSize(QSize(0, 0))
+        self.dataGroupsFrame.setFrameShape(QFrame.StyledPanel)
+        self.dataGroupsFrame.setFrameShadow(QFrame.Raised)
+        self.gridLayout_7 = QGridLayout(self.dataGroupsFrame)
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.modifyOptions_frame = QFrame(self.dataGroupsFrame)
+        self.modifyOptions_frame.setObjectName(u"modifyOptions_frame")
+        self.modifyOptions_frame.setFrameShape(QFrame.StyledPanel)
+        self.modifyOptions_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_17 = QVBoxLayout(self.modifyOptions_frame)
+        self.verticalLayout_17.setObjectName(u"verticalLayout_17")
         self.verticalLayout_17.setContentsMargins(0, -1, 0, -1)
-        self.verticalLayout_17.setObjectName("verticalLayout_17")
+
         self.gridLayout_7.addWidget(self.modifyOptions_frame, 3, 0, 1, 1)
-        self.groupOptions_frame = QtGui.QFrame(self.dataGroupsFrame)
-        self.groupOptions_frame.setFrameShape(QtGui.QFrame.StyledPanel)
-        self.groupOptions_frame.setFrameShadow(QtGui.QFrame.Raised)
-        self.groupOptions_frame.setObjectName("groupOptions_frame")
-        self.verticalLayout_16 = QtGui.QVBoxLayout(self.groupOptions_frame)
+
+        self.groupOptions_frame = QFrame(self.dataGroupsFrame)
+        self.groupOptions_frame.setObjectName(u"groupOptions_frame")
+        self.groupOptions_frame.setFrameShape(QFrame.StyledPanel)
+        self.groupOptions_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_16 = QVBoxLayout(self.groupOptions_frame)
+        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.verticalLayout_16.setContentsMargins(0, -1, 0, -1)
-        self.verticalLayout_16.setObjectName("verticalLayout_16")
+
         self.gridLayout_7.addWidget(self.groupOptions_frame, 1, 0, 1, 1)
-        self.dataFrame_line_2 = QtGui.QFrame(self.dataGroupsFrame)
-        self.dataFrame_line_2.setFrameShape(QtGui.QFrame.HLine)
-        self.dataFrame_line_2.setFrameShadow(QtGui.QFrame.Sunken)
-        self.dataFrame_line_2.setObjectName("dataFrame_line_2")
+
+        self.dataFrame_line_2 = QFrame(self.dataGroupsFrame)
+        self.dataFrame_line_2.setObjectName(u"dataFrame_line_2")
+        self.dataFrame_line_2.setFrameShape(QFrame.HLine)
+        self.dataFrame_line_2.setFrameShadow(QFrame.Sunken)
+
         self.gridLayout_7.addWidget(self.dataFrame_line_2, 2, 0, 1, 1)
-        self.dataFrame_line_1 = QtGui.QFrame(self.dataGroupsFrame)
-        self.dataFrame_line_1.setFrameShape(QtGui.QFrame.HLine)
-        self.dataFrame_line_1.setFrameShadow(QtGui.QFrame.Sunken)
-        self.dataFrame_line_1.setObjectName("dataFrame_line_1")
+
+        self.dataFrame_line_1 = QFrame(self.dataGroupsFrame)
+        self.dataFrame_line_1.setObjectName(u"dataFrame_line_1")
+        self.dataFrame_line_1.setFrameShape(QFrame.HLine)
+        self.dataFrame_line_1.setFrameShadow(QFrame.Sunken)
+
         self.gridLayout_7.addWidget(self.dataFrame_line_1, 0, 0, 1, 1)
+
+
         self.verticalLayout_5.addWidget(self.dataGroupsFrame)
-        spacerItem = QtGui.QSpacerItem(20, 10, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
-        self.verticalLayout_5.addItem(spacerItem)
-        self.deleteResetWidget = QtGui.QWidget(self.dataTrimmerPage)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.deleteResetWidget.sizePolicy().hasHeightForWidth())
-        self.deleteResetWidget.setSizePolicy(sizePolicy)
-        self.deleteResetWidget.setObjectName("deleteResetWidget")
-        self.gridLayout = QtGui.QGridLayout(self.deleteResetWidget)
-        self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.gridLayout.setObjectName("gridLayout")
-        spacerItem1 = QtGui.QSpacerItem(0, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem1, 0, 0, 1, 1)
+
+        self.verticalSpacer_4 = QSpacerItem(20, 10, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.verticalLayout_5.addItem(self.verticalSpacer_4)
+
+        self.deleteResetWidget = QWidget(self.dataTrimmerPage)
+        self.deleteResetWidget.setObjectName(u"deleteResetWidget")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.deleteResetWidget.sizePolicy().hasHeightForWidth())
+        self.deleteResetWidget.setSizePolicy(sizePolicy4)
+        self.gridLayout = QGridLayout(self.deleteResetWidget)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.horizontalSpacer_3 = QSpacerItem(0, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_3, 0, 0, 1, 1)
+
+
         self.verticalLayout_5.addWidget(self.deleteResetWidget)
-        self.toolBox.addItem(self.dataTrimmerPage, "")
+
+        self.toolBox.addItem(self.dataTrimmerPage, u"Control Panel")
+
         self.verticalLayout_3.addWidget(self.toolBox)
-        self.frame = QtGui.QFrame(self.scrollAreaWidgetContents)
-        self.frame.setFrameShape(QtGui.QFrame.StyledPanel)
-        self.frame.setFrameShadow(QtGui.QFrame.Raised)
-        self.frame.setObjectName("frame")
-        self.horizontalLayout_2 = QtGui.QHBoxLayout(self.frame)
+
+        self.frame = QFrame(self.scrollAreaWidgetContents)
+        self.frame.setObjectName(u"frame")
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_2 = QHBoxLayout(self.frame)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.horizontalLayout_2.setContentsMargins(3, 3, 3, 3)
-        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.viewAllButton = QtGui.QPushButton(self.frame)
-        self.viewAllButton.setObjectName("viewAllButton")
+        self.viewAllButton = QPushButton(self.frame)
+        self.viewAllButton.setObjectName(u"viewAllButton")
+
         self.horizontalLayout_2.addWidget(self.viewAllButton)
-        self.doneButton = QtGui.QPushButton(self.frame)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.doneButton.sizePolicy().hasHeightForWidth())
-        self.doneButton.setSizePolicy(sizePolicy)
-        self.doneButton.setObjectName("doneButton")
+
+        self.doneButton = QPushButton(self.frame)
+        self.doneButton.setObjectName(u"doneButton")
+        sizePolicy5 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.doneButton.sizePolicy().hasHeightForWidth())
+        self.doneButton.setSizePolicy(sizePolicy5)
+
         self.horizontalLayout_2.addWidget(self.doneButton)
+
+
         self.verticalLayout_3.addWidget(self.frame)
+
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+
         self.verticalLayout_2.addWidget(self.scrollArea)
+
         self.dockWidget.setWidget(self.dockWidgetContents)
+
         self.horizontalLayout.addWidget(self.dockWidget)
-        self.sceneviewerWidget = NodeEditorSceneviewerWidget(DataTrimmer)
+
+        self.sceneviewerWidget = SceneviewerWidget(DataTrimmer)
+        self.sceneviewerWidget.setObjectName(u"sceneviewerWidget")
         self.sceneviewerWidget.setEnabled(True)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(1)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.sceneviewerWidget.sizePolicy().hasHeightForWidth())
-        self.sceneviewerWidget.setSizePolicy(sizePolicy)
-        self.sceneviewerWidget.setMinimumSize(QtCore.QSize(0, 0))
-        self.sceneviewerWidget.setObjectName("sceneviewerWidget")
+        sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy6.setHorizontalStretch(1)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.sceneviewerWidget.sizePolicy().hasHeightForWidth())
+        self.sceneviewerWidget.setSizePolicy(sizePolicy6)
+        self.sceneviewerWidget.setMinimumSize(QSize(0, 0))
+
         self.horizontalLayout.addWidget(self.sceneviewerWidget)
 
+
         self.retranslateUi(DataTrimmer)
+
         self.toolBox.setCurrentIndex(0)
         self.toolBox.layout().setSpacing(6)
-        QtCore.QMetaObject.connectSlotsByName(DataTrimmer)
+
+
+        QMetaObject.connectSlotsByName(DataTrimmer)
+    # setupUi
 
     def retranslateUi(self, DataTrimmer):
-        DataTrimmer.setWindowTitle(QtGui.QApplication.translate("DataTrimmer", "Form", None, QtGui.QApplication.UnicodeUTF8))
-        self.dockWidget.setWindowTitle(QtGui.QApplication.translate("DataTrimmer", "Data Trimmer Step", None, QtGui.QApplication.UnicodeUTF8))
-        self.toolBox.setItemText(self.toolBox.indexOf(self.dataTrimmerPage), QtGui.QApplication.translate("DataTrimmer", "Control Panel", None, QtGui.QApplication.UnicodeUTF8))
-        self.viewAllButton.setToolTip(QtGui.QApplication.translate("DataTrimmer", "Adjust the view to see the whole model", None, QtGui.QApplication.UnicodeUTF8))
-        self.viewAllButton.setText(QtGui.QApplication.translate("DataTrimmer", "View All", None, QtGui.QApplication.UnicodeUTF8))
-        self.doneButton.setToolTip(QtGui.QApplication.translate("DataTrimmer", "Finish this step", None, QtGui.QApplication.UnicodeUTF8))
-        self.doneButton.setText(QtGui.QApplication.translate("DataTrimmer", "Done", None, QtGui.QApplication.UnicodeUTF8))
+        DataTrimmer.setWindowTitle(QCoreApplication.translate("DataTrimmer", u"Form", None))
+        self.dockWidget.setWindowTitle(QCoreApplication.translate("DataTrimmer", u"Data Trimmer Step", None))
+        self.toolBox.setItemText(self.toolBox.indexOf(self.dataTrimmerPage), QCoreApplication.translate("DataTrimmer", u"Control Panel", None))
+#if QT_CONFIG(tooltip)
+        self.viewAllButton.setToolTip(QCoreApplication.translate("DataTrimmer", u"Adjust the view to see the whole model", None))
+#endif // QT_CONFIG(tooltip)
+        self.viewAllButton.setText(QCoreApplication.translate("DataTrimmer", u"View All", None))
+#if QT_CONFIG(tooltip)
+        self.doneButton.setToolTip(QCoreApplication.translate("DataTrimmer", u"Finish this step", None))
+#endif // QT_CONFIG(tooltip)
+        self.doneButton.setText(QCoreApplication.translate("DataTrimmer", u"Done", None))
+    # retranslateUi
 
-from .nodeeditorsceneviewer import NodeEditorSceneviewerWidget

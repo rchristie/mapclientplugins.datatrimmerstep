@@ -1,11 +1,11 @@
-from PySide import QtGui, QtCore
+from PySide2 import QtGui, QtCore, QtWidgets
 
 from functools import partial
 
 from .ui_datatrimmerwidget import Ui_DataTrimmer
 
 
-class DataTrimmer(QtGui.QWidget):
+class DataTrimmer(QtWidgets.QWidget):
 
     def __init__(self, model, parent=None):
         super(DataTrimmer, self).__init__(parent)
@@ -27,7 +27,7 @@ class DataTrimmer(QtGui.QWidget):
     def _destroy_groups(self):
         group_to_delete = []
         for item in self._ui.groupOptions_frame.children():
-            if isinstance(item, QtGui.QCheckBox):
+            if isinstance(item, QtWidgets.QCheckBox):
                 if not item.isChecked():
                     group_to_delete.append(item.objectName())
         self._model.destroy_groups(group_to_delete)
@@ -40,7 +40,7 @@ class DataTrimmer(QtGui.QWidget):
 
     def _get_checked_groups(self):
         for item in self._ui.groupOptions_frame.children():
-            if isinstance(item, QtGui.QCheckBox):
+            if isinstance(item, QtWidgets.QCheckBox):
                 if item.isChecked():
                     self._checked_groups.append(item.objectName())
 
@@ -50,7 +50,7 @@ class DataTrimmer(QtGui.QWidget):
             child = layout.takeAt(0)
             if child.widget():
                 child.widget().deleteLater()
-        checkbox = QtGui.QCheckBox()
+        checkbox = QtWidgets.QCheckBox()
         checkbox.setCheckState(QtCore.Qt.Checked)
         checkbox.setObjectName('all_groups')
         checkbox.setText('All')
@@ -65,7 +65,7 @@ class DataTrimmer(QtGui.QWidget):
         for row in range(len(data_groups)):
             if data_groups[row] == 'marker' or data_groups[row] == 'cmiss_selection':
                 continue
-            checkbox = QtGui.QCheckBox()
+            checkbox = QtWidgets.QCheckBox()
             if settings[data_groups[row]]:
                 checkbox.setCheckState(QtCore.Qt.Checked)
             else:
@@ -80,12 +80,12 @@ class DataTrimmer(QtGui.QWidget):
         if checkbox.objectName() == 'all_groups':
             if not checkbox.isChecked():
                 for child in self._ui.groupOptions_frame.children():
-                    if isinstance(child, QtGui.QCheckBox):
+                    if isinstance(child, QtWidgets.QCheckBox):
                         child.setCheckState(QtCore.Qt.Unchecked)
                         self._model.remove_graphics(self._model.get_group_names())
             elif checkbox.isChecked():
                 for child in self._ui.groupOptions_frame.children():
-                    if isinstance(child, QtGui.QCheckBox):
+                    if isinstance(child, QtWidgets.QCheckBox):
                         child.setCheckState(QtCore.Qt.Checked)
                         self._model.show_graphics(self._model.get_group_names())
             return
